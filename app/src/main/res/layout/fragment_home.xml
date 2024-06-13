@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".presentation.home.HomeFragment">
+
+    <ImageView
+        android:id="@+id/imageViewHomeMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/bg_icon"
+        android:clickable="true"
+        android:padding="10dp"
+        android:src="@drawable/icon_menu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewHomeBasket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/bg_icon"
+        android:clickable="true"
+        android:padding="10dp"
+        android:src="@drawable/icon_basket"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollViewHome"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewHomeMenu">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clNested"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textViewHomeHello"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/inter_semibold_600"
+                android:text="Hello"
+                android:textColor="@color/black_20"
+                android:textSize="28sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewHomeWelcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/inter_regular_400"
+                android:text="Welcome to Laza."
+                android:textColor="@color/gray_9E"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="@+id/textViewHomeHello"
+                app:layout_constraintTop_toBottomOf="@+id/textViewHomeHello" />
+
+            <EditText
+                android:id="@+id/editTextHomeSearch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/bg_search"
+                android:drawableStart="@drawable/icon_search"
+                android:drawablePadding="16dp"
+                android:hint="Search"
+                android:inputType="text"
+                android:paddingVertical="16dp"
+                android:paddingLeft="16dp"
+                android:textColorHint="@color/gray_9E"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textViewHomeWelcome"
+                app:layout_constraintTop_toBottomOf="@+id/textViewHomeWelcome" />
+
+            <TextView
+                android:id="@+id/textViewHomeChooseBrand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter_medium_500"
+                android:text="Choose brand"
+                android:textColor="@color/black_20"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="@+id/editTextHomeSearch"
+                app:layout_constraintTop_toBottomOf="@+id/editTextHomeSearch" />
+
+            <TextView
+                android:id="@+id/textViewViewAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter_regular_400"
+                android:text="View all"
+                android:textColor="@color/gray_9E"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@+id/editTextHomeSearch"
+                app:layout_constraintTop_toBottomOf="@+id/editTextHomeSearch" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvHomeBrand"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                android:paddingStart="24dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewHomeChooseBrand"
+                tools:listitem="@layout/item_brand" />
+
+            <TextView
+                android:id="@+id/textViewHomeNewArrival"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/inter_medium_500"
+                android:text="New Arrival"
+                android:textColor="@color/black_20"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rvHomeBrand" />
+
+            <TextView
+                android:id="@+id/textViewViewAll2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/inter_regular_400"
+                android:text="View all"
+                android:textColor="@color/gray_9E"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rvHomeBrand" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvHomeNewArrival"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewHomeNewArrival"
+                app:spanCount="2"
+                tools:listitem="@layout/item_new_arrival" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

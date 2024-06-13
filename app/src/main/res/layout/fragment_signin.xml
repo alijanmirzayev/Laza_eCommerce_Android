@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".presentation.auth.signin.SigninFragment">
+
+    <ImageView
+        android:id="@+id/imageViewSigninLeftArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/bg_icon"
+        android:clickable="true"
+        android:padding="10dp"
+        android:src="@drawable/icon_left_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewSigninHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/inter_semibold_600"
+        android:text="Welcome"
+        android:textColor="@color/black_20"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewSigninLeftArrow" />
+
+    <TextView
+        android:id="@+id/textViewSignInUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:fontFamily="@font/inter_regular_400"
+        android:text="Email"
+        android:textColor="@color/gray_9E"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextSignInUsername"
+        app:layout_constraintStart_toStartOf="@+id/editTextSignInUsername" />
+
+    <EditText
+        android:id="@+id/editTextSignInUsername"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:inputType="textEmailAddress"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/gray_9E"
+        android:fontFamily="@font/inter_medium_500"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineSignIn" />
+
+    <TextView
+        android:id="@+id/textViewSignInPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/inter_regular_400"
+        android:text="Password"
+        android:textColor="@color/gray_9E"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/editTextSignInPassword"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSignInUsername" />
+
+    <EditText
+        android:id="@+id/editTextSignInPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:backgroundTint="@color/gray_9E"
+        android:fontFamily="@font/inter_medium_500"
+        android:inputType="textPassword"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSignInPassword" />
+
+    <TextView
+        android:id="@+id/textViewSignInRememberMe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/inter_medium_500"
+        android:text="Remember me"
+        android:textColor="@color/black_20"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSignInForgotPassword" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/switchSignIn"
+        app:trackTint="#34C759"
+        app:thumbTint="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:checked="false"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewSignInRememberMe"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textViewSignInRememberMe" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonSigninCreateAccount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple_FA"
+        android:fontFamily="@font/inter_medium_500"
+        android:paddingVertical="26dp"
+        android:text="Login"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewSignInSubtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp"
+        android:textColor="@color/gray_9E"
+        android:fontFamily="@font/inter_regular_400"
+        android:textSize="15sp"
+        android:text="Please enter your data to continue"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSigninHeader" />
+
+    <TextView
+        android:id="@+id/textViewSignInTermCondition"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="4dp"
+        android:textColor="@color/gray_9E"
+        android:fontFamily="@font/inter_regular_400"
+        android:textSize="15sp"
+        android:text="By connecting your account confirm that you agree with our Term and Condition"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSigninCreateAccount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineSignIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35" />
+
+    <TextView
+        android:id="@+id/textViewSignInForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/red_35"
+        android:fontFamily="@font/inter_regular_400"
+        android:textSize="15sp"
+        android:text="Forgot Password?"
+        app:layout_constraintEnd_toEndOf="@+id/editTextSignInPassword"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSignInPassword" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.alijan.laza.data.source.remote.dto.ProductDTO" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clItemNewArrival"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="24dp">
+
+        <ImageView
+            android:id="@+id/imageViewItemNewArrival"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:background="@drawable/bg_item_new_arrival_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:setImageFromUrl="@{item.productImage[0]}"/>
+
+        <TextView
+            android:id="@+id/textViewItemNewArrivalTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:fontFamily="@font/inter_medium_500"
+            android:text="@{item.productName}"
+            android:textColor="@color/black_20"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewItemNewArrival" />
+
+        <TextView
+            android:id="@+id/textViewItemNewArrivalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="19dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="@font/inter_semibold_600"
+            android:text='@{"$"+item.productPrice}'
+            android:textColor="@color/black_20"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewItemNewArrivalTitle" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

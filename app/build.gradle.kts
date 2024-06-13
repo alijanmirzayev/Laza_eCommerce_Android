@@ -4,6 +4,7 @@ plugins {
     id("androidx.navigation.safeargs.kotlin")
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+    alias(libs.plugins.google.gms.google.services)
 }
 
 android {
@@ -45,6 +46,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.firebase.auth)
     val nav_version = "2.7.7"
     val lifecycle_version = "2.8.1"
 
@@ -76,6 +78,9 @@ dependencies {
 
     // Datastore
     implementation("androidx.datastore:datastore-preferences:1.1.1")
+
+    // Toast
+    implementation("io.github.shashank02051997:FancyToast:2.0.2")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
