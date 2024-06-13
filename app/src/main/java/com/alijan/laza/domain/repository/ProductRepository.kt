@@ -8,6 +8,7 @@ interface ProductRepository {
 
     suspend fun getAllBrands(): NetworkResponse<List<BrandDTO>>
     suspend fun getNewArrivalProduct(): NetworkResponse<List<ProductDTO>>
+    suspend fun getProductById(id: String): NetworkResponse<ProductDTO>
 
 
 }

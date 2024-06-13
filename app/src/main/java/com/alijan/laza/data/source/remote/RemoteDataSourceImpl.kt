@@ -11,5 +11,6 @@ class RemoteDataSourceImpl @Inject constructor(private val apiService: APIServic
 
     override suspend fun getAllBrands(): Response<List<BrandDTO>> = apiService.getAllBrands()
     override suspend fun getNewArrivalProduct(): Response<List<ProductDTO>> = apiService.getNewArrivalProducts()
+    override suspend fun getProductById(id: String): Response<ProductDTO> = apiService.getProductById(id)
 
 }

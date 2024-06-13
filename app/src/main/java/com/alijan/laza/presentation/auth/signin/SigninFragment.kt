@@ -3,6 +3,7 @@ package com.alijan.laza.presentation.auth.signin
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.alijan.laza.R
 import com.alijan.laza.common.utils.loadingDialog
 import com.alijan.laza.common.utils.showFancyToast
 import com.alijan.laza.databinding.FragmentSigninBinding
@@ -46,7 +47,7 @@ class SigninFragment : BaseFragment<FragmentSigninBinding>() {
                     lifecycleScope.launch {
                         requireContext().showFancyToast("Success", FancyToast.SUCCESS)
                         delay(2000)
-                        // Home navigate ele
+                        findNavController().navigate(R.id.homeFragment)
                     }
                 }
             }

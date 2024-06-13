@@ -9,6 +9,7 @@ import com.alijan.laza.databinding.ItemNewArrivalBinding
 class NewArrivalAdapter : RecyclerView.Adapter<NewArrivalAdapter.NewArrivalViewHolder>() {
 
     private val productList = ArrayList<ProductDTO>()
+    lateinit var onClick: (id: String) -> Unit
 
     inner class NewArrivalViewHolder(val itemNewArrivalBinding: ItemNewArrivalBinding) :
         RecyclerView.ViewHolder(itemNewArrivalBinding.root)
@@ -23,6 +24,9 @@ class NewArrivalAdapter : RecyclerView.Adapter<NewArrivalAdapter.NewArrivalViewH
     override fun onBindViewHolder(holder: NewArrivalViewHolder, position: Int) {
         val currentItem = productList[position]
         holder.itemNewArrivalBinding.item = currentItem
+        holder.itemNewArrivalBinding.clItemNewArrival.setOnClickListener {
+            onClick(currentItem.id!!)
+        }
     }
 
     fun updateList(newList: List<ProductDTO>) {

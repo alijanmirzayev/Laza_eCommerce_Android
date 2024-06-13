@@ -1,6 +1,7 @@
 package com.alijan.laza.presentation.home
 
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.alijan.laza.common.utils.loadingDialog
 import com.alijan.laza.common.utils.showFancyToast
 import com.alijan.laza.databinding.FragmentHomeBinding
@@ -23,6 +24,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun setupUI() {
         observeData()
         setAdapter()
+        navigation()
     }
 
     private fun observeData() {
@@ -67,6 +69,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         binding.apply {
             rvHomeBrand.adapter = brandAdapter
             rvHomeNewArrival.adapter = newArrivalAdapter
+        }
+    }
+
+    private fun navigation(){
+        newArrivalAdapter.onClick = {
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailFragment(it))
         }
     }
 

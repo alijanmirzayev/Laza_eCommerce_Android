@@ -32,4 +32,15 @@ class ProductRepositoryImpl @Inject constructor(private val remoteDataSource: Re
             }
             return@withContext NetworkResponse.Error(response.message())
         }
+
+    override suspend fun getProductById(id: String): NetworkResponse<ProductDTO> =
+        withContext(Dispatchers.IO) {
+            val response = remoteDataSource.getProductById(id)
+            if (response.isSuccessful) {
+                response.body()?.let {
+                    return@withContext NetworkResponse.Success(it)
+                }
+            }
+            return@withContext NetworkResponse.Error(response.message())
+        }
 }

@@ -8,5 +8,6 @@ interface RemoteDataSource {
 
     suspend fun getAllBrands(): Response<List<BrandDTO>>
     suspend fun getNewArrivalProduct(): Response<List<ProductDTO>>
+    suspend fun getProductById(id: String): Response<ProductDTO>
 
 }
