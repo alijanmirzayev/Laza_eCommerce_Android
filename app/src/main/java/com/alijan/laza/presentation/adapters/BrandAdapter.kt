@@ -3,7 +3,7 @@ package com.alijan.laza.presentation.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.alijan.laza.data.source.remote.dto.BrandDTO
+import com.alijan.laza.data.dto.BrandDTO
 import com.alijan.laza.databinding.ItemBrandBinding
 
 class BrandAdapter : RecyclerView.Adapter<BrandAdapter.BrandViewHolder>() {

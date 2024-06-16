@@ -1,6 +1,6 @@
 package com.alijan.laza.presentation.detail
 
-import com.alijan.laza.data.source.remote.dto.ProductDTO
+import com.alijan.laza.data.dto.ProductDTO
 
 sealed class DetailUiProductState {
     data object Loading : DetailUiProductState()

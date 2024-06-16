@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".presentation.address.AddressFragment">
+
+    <ImageView
+        android:id="@+id/imageViewAddressLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/bg_icon"
+        android:clickable="true"
+        android:padding="10dp"
+        android:src="@drawable/icon_left_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewAddressCenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Address"
+        android:textSize="17sp"
+        android:textColor="@color/black_20"
+        android:fontFamily="@font/inter_semibold_600"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewAddressLeft"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageViewAddressLeft" />
+
+    <TextView
+        android:id="@+id/textViewAddressName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/inter_medium_500"
+        android:text="Name"
+        android:textColor="@color/black_20"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewAddressLeft" />
+
+    <EditText
+        android:id="@+id/editTextAddressName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/bg_item_brand"
+        android:inputType="text"
+        android:padding="10dp"
+        android:hint="Your name"
+        android:textColorHint="@color/gray_9E"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:fontFamily="@font/inter_regular_400"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textViewAddressName"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAddressName" />
+
+    <TextView
+        android:id="@+id/textViewAddressCountry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/inter_medium_500"
+        android:text="Country"
+        android:textColor="@color/black_20"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAddressName" />
+
+    <EditText
+        android:id="@+id/editTextAddressCountry"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/bg_item_brand"
+        android:inputType="text"
+        android:padding="10dp"
+        android:hint="Azerbaijan"
+        android:textColorHint="@color/gray_9E"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:fontFamily="@font/inter_regular_400"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textViewAddressCountry"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAddressCountry" />
+
+    <TextView
+        android:id="@+id/textViewAddressCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/inter_medium_500"
+        android:text="City"
+        android:textColor="@color/black_20"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAddressCountry" />
+
+    <EditText
+        android:id="@+id/editTextAddressCity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/bg_item_brand"
+        android:inputType="text"
+        android:padding="10dp"
+        android:hint="Baku"
+        android:textColorHint="@color/gray_9E"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:fontFamily="@font/inter_regular_400"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textViewAddressCity"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAddressCity" />
+
+    <TextView
+        android:id="@+id/textViewAddressPhoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/inter_medium_500"
+        android:text="Phone number"
+        android:textColor="@color/black_20"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAddressCity" />
+
+    <EditText
+        android:id="@+id/editTextAddressPhoneNumber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/bg_item_brand"
+        android:inputType="numberDecimal"
+        android:padding="10dp"
+        android:hint="+994505556677"
+        android:textColorHint="@color/gray_9E"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:fontFamily="@font/inter_regular_400"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textViewAddressPhoneNumber"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAddressPhoneNumber" />
+
+    <TextView
+        android:id="@+id/textViewAddressAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/inter_medium_500"
+        android:text="Address"
+        android:textColor="@color/black_20"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAddressPhoneNumber" />
+
+    <EditText
+        android:id="@+id/editTextAddressAddress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/bg_item_brand"
+        android:inputType="text"
+        android:padding="10dp"
+        android:hint="Khazar, A.Isazade"
+        android:textColorHint="@color/gray_9E"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:fontFamily="@font/inter_regular_400"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textViewAddressAddress"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAddressAddress" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonAddressSave"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple_FA"
+        android:fontFamily="@font/inter_medium_500"
+        android:paddingVertical="26dp"
+        android:text="Save Address"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

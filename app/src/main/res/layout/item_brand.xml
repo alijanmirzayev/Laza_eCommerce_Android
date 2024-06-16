@@ -5,7 +5,7 @@
     <data>
         <variable
             name="item"
-            type="com.alijan.laza.data.source.remote.dto.BrandDTO" />
+            type="com.alijan.laza.data.dto.BrandDTO" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

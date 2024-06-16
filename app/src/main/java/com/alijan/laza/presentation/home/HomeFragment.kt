@@ -72,9 +72,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         }
     }
 
-    private fun navigation(){
+    private fun navigation() {
         newArrivalAdapter.onClick = {
-            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailFragment(it))
+            findNavController().navigate(
+                HomeFragmentDirections.actionHomeFragmentToDetailFragment(
+                    it
+                )
+            )
+        }
+        binding.imageViewHomeBasket.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToBasketFragment())
         }
     }
 

@@ -1,4 +1,4 @@
-package com.alijan.laza.data.source.remote.dto
+package com.alijan.laza.data.dto
 
 
 import com.google.gson.annotations.SerializedName

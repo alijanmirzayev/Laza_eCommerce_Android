@@ -8,6 +8,7 @@ import com.alijan.laza.databinding.ItemDetailImageBinding
 class ImageAdapter : RecyclerView.Adapter<ImageAdapter.ImageViewHolder>() {
 
     private val imageList = ArrayList<String>()
+    lateinit var onClickImage: (image: String) -> Unit
 
     inner class ImageViewHolder(val itemDetailImageBinding: ItemDetailImageBinding) :
         RecyclerView.ViewHolder(itemDetailImageBinding.root)
@@ -22,6 +23,9 @@ class ImageAdapter : RecyclerView.Adapter<ImageAdapter.ImageViewHolder>() {
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
         val currentItem = imageList[position]
         holder.itemDetailImageBinding.item = currentItem
+        holder.itemDetailImageBinding.clItemDetailImage.setOnClickListener {
+            onClickImage(currentItem)
+        }
     }
 
     fun updateList(newList: List<String>){

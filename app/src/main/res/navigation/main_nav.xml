@@ -48,6 +48,9 @@
             app:exitAnim="@anim/nav_exit_anim"
             app:popEnterAnim="@anim/nav_pop_enter_anim"
             app:popExitAnim="@anim/nav_pop_exit_anim"/>
+        <action
+            android:id="@+id/action_homeFragment_to_basketFragment"
+            app:destination="@id/basketFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
@@ -57,5 +60,30 @@
         <argument
             android:name="id"
             app:argType="string" />
+        <action
+            android:id="@+id/action_detailFragment_to_basketFragment"
+            app:destination="@id/basketFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/basketFragment"
+        android:name="com.alijan.laza.presentation.basket.BasketFragment"
+        android:label="fragment_basket"
+        tools:layout="@layout/fragment_basket" >
+        <action
+            android:id="@+id/action_basketFragment_to_addressFragment"
+            app:destination="@id/addressFragment" />
+        <action
+            android:id="@+id/action_basketFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addressFragment"
+        android:name="com.alijan.laza.presentation.address.AddressFragment"
+        android:label="fragment_address"
+        tools:layout="@layout/fragment_address" />
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.alijan.laza.presentation.payment.PaymentFragment"
+        android:label="fragment_payment"
+        tools:layout="@layout/fragment_payment" />
 </navigation>

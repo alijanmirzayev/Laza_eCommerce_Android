@@ -6,6 +6,9 @@
         <variable
             name="item"
             type="String" />
+        <variable
+            name="selectedItem"
+            type="String" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -16,9 +19,11 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/clItemDetailSize"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginRight="8dp"
+            android:backgroundTint='@{selectedItem == item ? @color/purple_FA : @color/white_FA}'
             android:background="@drawable/bg_item_brand">
 
             <TextView
@@ -27,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inter_semibold_600"
                 android:text="@{item}"
-                android:textColor="@color/black_20"
+                android:textColor='@{selectedItem == item ? @color/white_FA : @color/black_20}'
                 android:textSize="17sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

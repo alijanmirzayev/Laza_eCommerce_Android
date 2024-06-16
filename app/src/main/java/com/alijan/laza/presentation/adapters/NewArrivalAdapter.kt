@@ -3,7 +3,7 @@ package com.alijan.laza.presentation.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.alijan.laza.data.source.remote.dto.ProductDTO
+import com.alijan.laza.data.dto.ProductDTO
 import com.alijan.laza.databinding.ItemNewArrivalBinding
 
 class NewArrivalAdapter : RecyclerView.Adapter<NewArrivalAdapter.NewArrivalViewHolder>() {

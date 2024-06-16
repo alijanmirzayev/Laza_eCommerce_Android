@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="com.alijan.laza.data.source.remote.dto.ProductDTO" />
+            type="com.alijan.laza.data.dto.ProductDTO" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

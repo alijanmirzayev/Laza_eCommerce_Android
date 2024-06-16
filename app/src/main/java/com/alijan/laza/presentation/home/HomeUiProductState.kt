@@ -1,6 +1,6 @@
 package com.alijan.laza.presentation.home
 
-import com.alijan.laza.data.source.remote.dto.ProductDTO
+import com.alijan.laza.data.dto.ProductDTO
 
 sealed class HomeUiProductState {
     data object Loading : HomeUiProductState()

@@ -1,8 +1,7 @@
 package com.alijan.laza.data.repository
 
-import android.util.Log
 import com.alijan.laza.common.NetworkResponse
-import com.alijan.laza.data.source.local.datastore.DataStore
+import com.alijan.laza.data.source.local.LocalDataSource
 import com.alijan.laza.domain.repository.AuthRepository
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
@@ -13,7 +12,7 @@ import javax.inject.Inject
 
 class AuthRepositoryImpl @Inject constructor(
     private val firebaseAuth: FirebaseAuth,
-    private val dataStore: DataStore
+    private val localDataStore: LocalDataSource
 ) :
     AuthRepository {
     override suspend fun signUp(email: String, password: String): NetworkResponse<AuthResult> =
@@ -65,7 +64,7 @@ class AuthRepositoryImpl @Inject constructor(
     override suspend fun saveIsRegister(value: Boolean): NetworkResponse<Boolean> =
         withContext(Dispatchers.IO) {
             try {
-                val response = dataStore.saveIsRegister(value)
+                val response = localDataStore.saveIsRegister(value)
                 return@withContext NetworkResponse.Success(value)
             } catch (e: Exception) {
                 e.localizedMessage?.let {
@@ -77,7 +76,7 @@ class AuthRepositoryImpl @Inject constructor(
 
     override suspend fun getIsRegister(): NetworkResponse<Boolean?> = withContext(Dispatchers.IO) {
         try {
-            val response = dataStore.getIsRegister()
+            val response = localDataStore.getIsRegister()
             if (response == true) {
                 return@withContext NetworkResponse.Success(response)
             }

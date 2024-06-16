@@ -1,7 +1,7 @@
 package com.alijan.laza.data.source.remote
 
-import com.alijan.laza.data.source.remote.dto.BrandDTO
-import com.alijan.laza.data.source.remote.dto.ProductDTO
+import com.alijan.laza.data.dto.BrandDTO
+import com.alijan.laza.data.dto.ProductDTO
 import retrofit2.Response
 
 interface RemoteDataSource {

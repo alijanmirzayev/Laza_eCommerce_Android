@@ -1,11 +1,11 @@
-package com.alijan.laza.data.source.remote.dto
+package com.alijan.laza.data.dto
 
 
 import com.google.gson.annotations.SerializedName
 
 data class ProductDTO(
     @SerializedName("id")
-    val id: String?,
+    val id: String,
     @SerializedName("productDescription")
     val productDescription: String?,
     @SerializedName("productImage")

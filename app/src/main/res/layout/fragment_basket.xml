@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".presentation.basket.BasketFragment">
+
+    <ImageView
+        android:id="@+id/imageViewBasketLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/bg_icon"
+        android:clickable="true"
+        android:padding="10dp"
+        android:src="@drawable/icon_left_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewBasketCenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cart"
+        android:textSize="17sp"
+        android:textColor="@color/black_20"
+        android:fontFamily="@font/inter_semibold_600"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewBasketLeft"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageViewBasketLeft" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollViewBasket"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewBasketCenter">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clNestedCart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvBasket"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/item_basket"/>
+
+            <TextView
+                android:id="@+id/textViewBasketDeliveryText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:text="Delivery Address"
+                android:textColor="@color/black_20"
+                android:textSize="17sp"
+                android:fontFamily="@font/inter_medium_500"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rvBasket" />
+
+            <ImageView
+                android:id="@+id/imageViewBasketPaymentRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:src="@drawable/icon_right_arrow"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewBasketPaymentMethod"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textViewBasketPaymentMethod" />
+
+            <ImageView
+                android:id="@+id/imageViewBasketCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/img_location"
+                app:layout_constraintStart_toStartOf="@+id/textViewBasketDeliveryText"
+                app:layout_constraintTop_toBottomOf="@+id/textViewBasketDeliveryText" />
+
+            <TextView
+                android:id="@+id/textViewBasketAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Chhatak, Sunamgonj 12/8AB"
+                android:textColor="@color/black_20"
+                android:textSize="15sp"
+                android:fontFamily="@font/inter_regular_400"
+                app:layout_constraintStart_toEndOf="@+id/imageViewBasketLocation"
+                app:layout_constraintTop_toTopOf="@+id/imageViewBasketLocation" />
+
+            <TextView
+                android:id="@+id/textViewBasketCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Sylhet"
+                android:textColor="@color/gray_9E"
+                android:textSize="13sp"
+                android:fontFamily="@font/inter_regular_400"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewBasketLocation"
+                app:layout_constraintStart_toEndOf="@+id/imageViewBasketLocation" />
+
+            <ImageView
+                android:id="@+id/imageViewBasketCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:src="@drawable/icon_check"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewBasketCity"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textViewBasketAddress" />
+
+            <TextView
+                android:id="@+id/textViewBasketPaymentMethod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:text="Payment Method"
+                android:textColor="@color/black_20"
+                android:textSize="17sp"
+                android:fontFamily="@font/inter_medium_500"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewBasketLocation" />
+
+            <ImageView
+                android:id="@+id/imageViewBasketDeliveryRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:src="@drawable/icon_right_arrow"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewBasketDeliveryText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textViewBasketDeliveryText" />
+
+            <ImageView
+                android:id="@+id/imageViewBasketLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/img_location"
+                app:layout_constraintStart_toStartOf="@+id/textViewBasketDeliveryText"
+                app:layout_constraintTop_toBottomOf="@+id/textViewBasketDeliveryText" />
+
+            <ImageView
+                android:id="@+id/imageViewBasketVisa"
+                android:background="@drawable/bg_icon"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/img_visa"
+                app:layout_constraintStart_toStartOf="@+id/textViewBasketPaymentMethod"
+                app:layout_constraintTop_toBottomOf="@+id/textViewBasketPaymentMethod" />
+
+            <TextView
+                android:id="@+id/textViewBasketCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Visa Classic"
+                android:textColor="@color/black_20"
+                android:textSize="15sp"
+                android:fontFamily="@font/inter_regular_400"
+                app:layout_constraintStart_toEndOf="@+id/imageViewBasketVisa"
+                app:layout_constraintTop_toTopOf="@+id/imageViewBasketVisa" />
+
+            <TextView
+                android:id="@+id/textViewBasketCardInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="**** 7690"
+                android:textColor="@color/gray_9E"
+                android:textSize="13sp"
+                android:fontFamily="@font/inter_regular_400"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewBasketVisa"
+                app:layout_constraintStart_toEndOf="@+id/imageViewBasketVisa" />
+
+            <ImageView
+                android:id="@+id/imageViewBasketCheckPayment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:src="@drawable/icon_check"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewBasketCardInfo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textViewBasketCard" />
+
+            <TextView
+                android:id="@+id/textViewBasketOrderInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:text="Order Info"
+                android:textColor="@color/black_20"
+                android:textSize="17sp"
+                android:fontFamily="@font/inter_medium_500"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewBasketVisa" />
+
+            <TextView
+                android:id="@+id/textViewBasketSubtotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Subtotal"
+                android:textSize="15sp"
+                android:textColor="@color/gray_9E"
+                android:fontFamily="@font/inter_regular_400"
+                app:layout_constraintStart_toStartOf="@+id/textViewBasketOrderInfo"
+                app:layout_constraintTop_toBottomOf="@+id/textViewBasketOrderInfo" />
+
+            <TextView
+                android:id="@+id/textViewBasketShippingCost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/inter_regular_400"
+                android:text="Shipping cost"
+                android:textColor="@color/gray_9E"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="@+id/textViewBasketSubtotal"
+                app:layout_constraintTop_toBottomOf="@+id/textViewBasketSubtotal" />
+
+            <TextView
+                android:id="@+id/textViewBasketTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Total"
+                android:textSize="15sp"
+                android:textColor="@color/gray_9E"
+                android:fontFamily="@font/inter_regular_400"
+                app:layout_constraintStart_toStartOf="@+id/textViewBasketShippingCost"
+                app:layout_constraintTop_toBottomOf="@+id/textViewBasketShippingCost" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonBasketCheckout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/purple_FA"
+                android:fontFamily="@font/inter_medium_500"
+                android:paddingVertical="26dp"
+                android:text="Checkout"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                app:cornerRadius="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewBasketSubtotalCost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/inter_medium_500"
+                android:text="$120"
+                android:textColor="@color/black_20"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewBasketSubtotal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textViewBasketSubtotal" />
+
+            <TextView
+                android:id="@+id/textViewBasketShippingCostCost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/inter_medium_500"
+                android:text="$12.00"
+                android:textColor="@color/black_20"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewBasketShippingCost"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textViewBasketShippingCost" />
+
+            <TextView
+                android:id="@+id/textViewBasketTotalCost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/inter_medium_500"
+                android:text="$12.00"
+                android:textColor="@color/black_20"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewBasketTotal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textViewBasketTotal" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

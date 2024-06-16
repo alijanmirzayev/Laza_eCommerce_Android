@@ -5,7 +5,10 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStoreFile
-import com.alijan.laza.data.source.local.datastore.DataStoreImpl
+import androidx.room.Room
+import com.alijan.laza.data.source.local.LocalDataSource
+import com.alijan.laza.data.source.local.LocalDataSourceImpl
+import com.alijan.laza.data.source.local.room.RoomDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,9 +16,19 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
+
 @Module
 @InstallIn(SingletonComponent::class)
-object DataStoreModule {
+object LocalModule {
+
+    @Singleton
+    @Provides
+    fun provideRoomDatabase(@ApplicationContext context: Context) =
+        Room.databaseBuilder(context, RoomDatabase::class.java, "room_db").build()
+
+    @Singleton
+    @Provides
+    fun provideFavoriteDao(roomDatabase: RoomDatabase) = roomDatabase.favoriteDao()
 
     @Singleton
     @Provides
@@ -26,8 +39,8 @@ object DataStoreModule {
 
     @Singleton
     @Provides
-    fun provideDataStoreImpl(dataStore: DataStore<Preferences>): com.alijan.laza.data.source.local.datastore.DataStore {
-        return DataStoreImpl(dataStore)
+    fun provideLocalDataSourceImpl(dataStore: DataStore<Preferences>, roomDatabase: RoomDatabase): LocalDataSource {
+        return LocalDataSourceImpl(dataStore,roomDatabase)
     }
 
 }
