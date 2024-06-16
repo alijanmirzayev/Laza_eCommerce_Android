@@ -13,4 +13,7 @@ interface AuthRepository {
 
     suspend fun sendPasswordReset(email: String): NetworkResponse<Void>
 
+    suspend fun saveIsRegister(value: Boolean): NetworkResponse<Boolean>
+    suspend fun getIsRegister(): NetworkResponse<Boolean?>
+
 }

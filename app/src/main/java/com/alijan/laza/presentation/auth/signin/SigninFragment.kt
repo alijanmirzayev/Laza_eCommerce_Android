@@ -14,6 +14,7 @@ import com.shashank.sony.fancytoastlib.FancyToast
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+
 @AndroidEntryPoint
 class SigninFragment : BaseFragment<FragmentSigninBinding>() {
     private val viewModel by viewModels<AuthViewModel>()
@@ -33,10 +34,7 @@ class SigninFragment : BaseFragment<FragmentSigninBinding>() {
             loadingDialog.dismiss()
             when (it) {
                 is AuthUiState.Error -> {
-                    requireContext().showFancyToast(
-                        "Error: ${it.message}",
-                        FancyToast.ERROR
-                    )
+                    showToastMessage("Error: ${it.message}", FancyToast.ERROR)
                 }
 
                 AuthUiState.Loading -> {
@@ -45,8 +43,9 @@ class SigninFragment : BaseFragment<FragmentSigninBinding>() {
 
                 AuthUiState.Success -> {
                     lifecycleScope.launch {
-                        requireContext().showFancyToast("Success", FancyToast.SUCCESS)
-                        delay(2000)
+                        showToastMessage("Success", FancyToast.SUCCESS)
+                        delay(1500)
+                        viewModel.saveIsRegister(true)
                         findNavController().navigate(R.id.homeFragment)
                     }
                 }
@@ -54,7 +53,7 @@ class SigninFragment : BaseFragment<FragmentSigninBinding>() {
         }
     }
 
-    private fun buttonClick(){
+    private fun buttonClick() {
         binding.apply {
             buttonSigninCreateAccount.setOnClickListener {
                 val email = binding.editTextSignInUsername.text.toString().trim()
@@ -62,10 +61,7 @@ class SigninFragment : BaseFragment<FragmentSigninBinding>() {
                 if (email.isNotEmpty() && password.isNotEmpty()) {
                     viewModel.signIn(email, password)
                 } else {
-                    requireContext().showFancyToast(
-                        "Please fill all inputs!",
-                        FancyToast.INFO
-                    )
+                    showToastMessage("Please fill all inputs!", FancyToast.INFO)
                 }
             }
 
@@ -78,4 +74,12 @@ class SigninFragment : BaseFragment<FragmentSigninBinding>() {
             }
         }
     }
+
+    private fun showToastMessage(message: String, type: Int) {
+        requireContext().showFancyToast(
+            message,
+            type
+        )
+    }
+
 }
