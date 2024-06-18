@@ -5,6 +5,7 @@ import com.alijan.laza.data.dto.BrandDTO
 import com.alijan.laza.data.dto.ProductDTO
 import com.alijan.laza.data.dto.local.AddressLocalDTO
 import com.alijan.laza.data.dto.local.BasketLocalDTO
+import com.alijan.laza.data.dto.local.CardLocalDTO
 import com.alijan.laza.data.source.local.LocalDataSource
 import com.alijan.laza.data.source.remote.RemoteDataSource
 import com.alijan.laza.domain.repository.ProductRepository
@@ -77,6 +78,18 @@ class ProductRepositoryImpl @Inject constructor(
     override suspend fun getAddressInformationToLocal(): NetworkResponse<List<AddressLocalDTO>> =
         withContext(Dispatchers.IO) {
             val response = localDataSource.getAddressInformationToLocal()
+            return@withContext NetworkResponse.Success(response)
+        }
+
+    override suspend fun updateCardInformationToLocal(item: CardLocalDTO): NetworkResponse<Unit> =
+        withContext(Dispatchers.IO) {
+            val response = localDataSource.updateCardInformationToLocal(item)
+            return@withContext NetworkResponse.Success(response)
+        }
+
+    override suspend fun getCardInformationToLocal(): NetworkResponse<List<CardLocalDTO>> =
+        withContext(Dispatchers.IO) {
+            val response = localDataSource.getCardInformationToLocal()
             return@withContext NetworkResponse.Success(response)
         }
 }

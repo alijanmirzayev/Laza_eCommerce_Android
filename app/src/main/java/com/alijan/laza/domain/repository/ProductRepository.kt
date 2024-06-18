@@ -5,6 +5,7 @@ import com.alijan.laza.data.dto.BrandDTO
 import com.alijan.laza.data.dto.ProductDTO
 import com.alijan.laza.data.dto.local.AddressLocalDTO
 import com.alijan.laza.data.dto.local.BasketLocalDTO
+import com.alijan.laza.data.dto.local.CardLocalDTO
 
 interface ProductRepository {
 
@@ -16,5 +17,7 @@ interface ProductRepository {
     suspend fun deleteBasketToLocal(item: BasketLocalDTO): NetworkResponse<Unit>
     suspend fun updateAddressInformationToLocal(item: AddressLocalDTO): NetworkResponse<Unit>
     suspend fun getAddressInformationToLocal(): NetworkResponse<List<AddressLocalDTO>>
+    suspend fun updateCardInformationToLocal(item: CardLocalDTO): NetworkResponse<Unit>
+    suspend fun getCardInformationToLocal(): NetworkResponse<List<CardLocalDTO>>
 
 }

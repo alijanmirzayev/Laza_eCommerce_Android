@@ -5,6 +5,7 @@ import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import com.alijan.laza.data.dto.local.AddressLocalDTO
 import com.alijan.laza.data.dto.local.BasketLocalDTO
+import com.alijan.laza.data.dto.local.CardLocalDTO
 import com.alijan.laza.data.source.local.room.RoomDatabase
 import kotlinx.coroutines.flow.first
 import javax.inject.Inject
@@ -47,6 +48,14 @@ class LocalDataSourceImpl @Inject constructor(
 
     override suspend fun getAddressInformationToLocal(): List<AddressLocalDTO> {
         return roomDatabase.addressDao().getAddressByLocal()
+    }
+
+    override suspend fun updateCardInformationToLocal(item: CardLocalDTO) {
+        roomDatabase.cardDao().updateCardToLocal(item)
+    }
+
+    override suspend fun getCardInformationToLocal(): List<CardLocalDTO> {
+        return roomDatabase.cardDao().getCardByLocal()
     }
 
 

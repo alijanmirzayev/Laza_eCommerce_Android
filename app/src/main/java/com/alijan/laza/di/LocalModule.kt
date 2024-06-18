@@ -36,6 +36,10 @@ object LocalModule {
 
     @Singleton
     @Provides
+    fun provideCardDao(roomDatabase: RoomDatabase) = roomDatabase.cardDao()
+
+    @Singleton
+    @Provides
     fun provideDataStore(@ApplicationContext context: Context): DataStore<Preferences> =
         PreferenceDataStoreFactory.create(produceFile = {
             context.preferencesDataStoreFile("settings")
