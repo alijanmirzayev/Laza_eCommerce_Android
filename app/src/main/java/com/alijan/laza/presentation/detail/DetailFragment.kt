@@ -80,7 +80,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
             }
             buttonDetailAddToCard.setOnClickListener {
                 if (size != null) {
-                    viewModel.addFavoriteToLocal(binding.item!!, size!!, 1)
+                    viewModel.addBasketToLocal(binding.item!!, size!!, 1)
                     showToastMessage("Product added your basket", FancyToast.INFO)
                 }
                 else showToastMessage("Please select size", FancyToast.INFO)

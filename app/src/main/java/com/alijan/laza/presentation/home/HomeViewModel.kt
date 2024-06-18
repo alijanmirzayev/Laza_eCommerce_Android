@@ -15,8 +15,7 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     private val getAllBrandsUseCase: GetAllBrandsUseCase,
     private val getAllNewArrivalProductsUseCase: GetNewArrivalProductsUseCase
-) :
-    ViewModel() {
+) : ViewModel() {
 
     private var _brands = MutableLiveData<HomeUiBrandState>()
     val brands: LiveData<HomeUiBrandState> get() = _brands

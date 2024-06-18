@@ -5,9 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.alijan.laza.common.NetworkResponse
-import com.alijan.laza.common.toFavoriteLocalDTO
+import com.alijan.laza.common.toBasketLocalDTO
 import com.alijan.laza.data.dto.ProductDTO
-import com.alijan.laza.domain.usecase.AddFavoriteToLocalUseCase
+import com.alijan.laza.domain.usecase.AddBasketToLocalUseCase
 import com.alijan.laza.domain.usecase.GetProductByIdUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -16,7 +16,7 @@ import javax.inject.Inject
 @HiltViewModel
 class DetailViewModel @Inject constructor(
     private val getProductByIdUseCase: GetProductByIdUseCase,
-    private val addFavoriteToLocalUseCase: AddFavoriteToLocalUseCase
+    private val addBasketToLocalUseCase: AddBasketToLocalUseCase
 ) :
     ViewModel() {
 
@@ -40,9 +40,9 @@ class DetailViewModel @Inject constructor(
         }
     }
 
-    fun addFavoriteToLocal(productDTO: ProductDTO, size: String, count: Int) {
+    fun addBasketToLocal(productDTO: ProductDTO, size: String, count: Int) {
         viewModelScope.launch {
-            addFavoriteToLocalUseCase.execute(productDTO.toFavoriteLocalDTO(size, count))
+            addBasketToLocalUseCase.execute(productDTO.toBasketLocalDTO(size, count))
         }
     }
 

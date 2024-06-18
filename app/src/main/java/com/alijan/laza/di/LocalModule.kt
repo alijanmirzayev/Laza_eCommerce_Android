@@ -28,7 +28,11 @@ object LocalModule {
 
     @Singleton
     @Provides
-    fun provideFavoriteDao(roomDatabase: RoomDatabase) = roomDatabase.favoriteDao()
+    fun provideFavoriteDao(roomDatabase: RoomDatabase) = roomDatabase.basketDao()
+
+    @Singleton
+    @Provides
+    fun provideAddressDao(roomDatabase: RoomDatabase) = roomDatabase.addressDao()
 
     @Singleton
     @Provides
@@ -39,8 +43,11 @@ object LocalModule {
 
     @Singleton
     @Provides
-    fun provideLocalDataSourceImpl(dataStore: DataStore<Preferences>, roomDatabase: RoomDatabase): LocalDataSource {
-        return LocalDataSourceImpl(dataStore,roomDatabase)
+    fun provideLocalDataSourceImpl(
+        dataStore: DataStore<Preferences>,
+        roomDatabase: RoomDatabase
+    ): LocalDataSource {
+        return LocalDataSourceImpl(dataStore, roomDatabase)
     }
 
 }
