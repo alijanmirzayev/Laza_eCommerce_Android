@@ -6,6 +6,7 @@ import androidx.datastore.preferences.core.edit
 import com.alijan.laza.data.dto.local.AddressLocalDTO
 import com.alijan.laza.data.dto.local.BasketLocalDTO
 import com.alijan.laza.data.dto.local.CardLocalDTO
+import com.alijan.laza.data.dto.local.WishlistLocalDTO
 import com.alijan.laza.data.source.local.room.RoomDatabase
 import kotlinx.coroutines.flow.first
 import javax.inject.Inject
@@ -60,6 +61,22 @@ class LocalDataSourceImpl @Inject constructor(
 
     override suspend fun getCardInformationToLocal(): List<CardLocalDTO> {
         return roomDatabase.cardDao().getCardByLocal()
+    }
+
+    override suspend fun getAllWishlistByLocal(): List<WishlistLocalDTO> {
+        return roomDatabase.wishlistDao().getAllWishlistByLocal()
+    }
+
+    override suspend fun getItemWishlistByLocal(item: WishlistLocalDTO): WishlistLocalDTO? {
+        return roomDatabase.wishlistDao().getItemWishlistByLocal(item.productId)
+    }
+
+    override suspend fun addItemWishlistToLocal(item: WishlistLocalDTO) {
+        roomDatabase.wishlistDao().addItemWishlistToLocal(item)
+    }
+
+    override suspend fun deleteItemWishlistToLocal(item: WishlistLocalDTO) {
+        roomDatabase.wishlistDao().deleteItemWishlistToLocal(item)
     }
 
 

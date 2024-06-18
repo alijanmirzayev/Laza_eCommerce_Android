@@ -17,9 +17,9 @@ interface BasketDao {
     suspend fun deleteAllBasketByLocal()
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun addBasketToLocal(item: BasketLocalDTO)
+    suspend fun addBasketToLocal(item: BasketLocalDTO)
 
     @Delete
-    fun deleteBasketToLocal(item: BasketLocalDTO)
+    suspend fun deleteBasketToLocal(item: BasketLocalDTO)
 
 }

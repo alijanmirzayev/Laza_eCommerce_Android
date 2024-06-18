@@ -40,6 +40,10 @@ object LocalModule {
 
     @Singleton
     @Provides
+    fun provideWishlistDao(roomDatabase: RoomDatabase) = roomDatabase.wishlistDao()
+
+    @Singleton
+    @Provides
     fun provideDataStore(@ApplicationContext context: Context): DataStore<Preferences> =
         PreferenceDataStoreFactory.create(produceFile = {
             context.preferencesDataStoreFile("settings")

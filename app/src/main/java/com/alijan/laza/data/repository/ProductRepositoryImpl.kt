@@ -6,6 +6,7 @@ import com.alijan.laza.data.dto.ProductDTO
 import com.alijan.laza.data.dto.local.AddressLocalDTO
 import com.alijan.laza.data.dto.local.BasketLocalDTO
 import com.alijan.laza.data.dto.local.CardLocalDTO
+import com.alijan.laza.data.dto.local.WishlistLocalDTO
 import com.alijan.laza.data.source.local.LocalDataSource
 import com.alijan.laza.data.source.remote.RemoteDataSource
 import com.alijan.laza.domain.repository.ProductRepository
@@ -96,6 +97,30 @@ class ProductRepositoryImpl @Inject constructor(
     override suspend fun getCardInformationToLocal(): NetworkResponse<List<CardLocalDTO>> =
         withContext(Dispatchers.IO) {
             val response = localDataSource.getCardInformationToLocal()
+            return@withContext NetworkResponse.Success(response)
+        }
+
+    override suspend fun getAllWishlistByLocal(): NetworkResponse<List<WishlistLocalDTO>> =
+        withContext(Dispatchers.IO) {
+            val response = localDataSource.getAllWishlistByLocal()
+            return@withContext NetworkResponse.Success(response)
+        }
+
+    override suspend fun getItemWishlistByLocal(item: WishlistLocalDTO): NetworkResponse<WishlistLocalDTO?> =
+        withContext(Dispatchers.IO) {
+            val response = localDataSource.getItemWishlistByLocal(item)
+            return@withContext NetworkResponse.Success(response)
+        }
+
+    override suspend fun addItemWishlistToLocal(item: WishlistLocalDTO): NetworkResponse<Unit> =
+        withContext(Dispatchers.IO) {
+            val response = localDataSource.addItemWishlistToLocal(item)
+            return@withContext NetworkResponse.Success(response)
+        }
+
+    override suspend fun deleteItemWishlistToLocal(item: WishlistLocalDTO): NetworkResponse<Unit> =
+        withContext(Dispatchers.IO) {
+            val response = localDataSource.deleteItemWishlistToLocal(item)
             return@withContext NetworkResponse.Success(response)
         }
 }

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".presentation.wishlist.WishlistFragment">
+
+    <ImageView
+        android:id="@+id/imageViewWishlistLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/bg_icon"
+        android:clickable="true"
+        android:padding="10dp"
+        android:src="@drawable/icon_left_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewWishlistCenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_semibold_600"
+        android:text="Wishlist"
+        android:textColor="@color/black_20"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewWishlistLeft"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageViewWishlistLeft" />
+
+    <TextView
+        android:id="@+id/textViewWishlistItemCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="365 Items"
+        android:textSize="17sp"
+        android:textColor="@color/black_20"
+        android:fontFamily="@font/inter_medium_500"
+        app:layout_constraintStart_toStartOf="@+id/imageViewWishlistLeft"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewWishlistLeft" />
+
+    <TextView
+        android:id="@+id/textViewWishlistText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="in wishlist"
+        android:textSize="15sp"
+        android:textColor="@color/gray_9E"
+        android:fontFamily="@font/inter_regular_400"
+        app:layout_constraintStart_toStartOf="@+id/textViewWishlistItemCount"
+        app:layout_constraintTop_toBottomOf="@+id/textViewWishlistItemCount" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvWishlist"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewWishlistText"
+        app:spanCount="2"
+        tools:listitem="@layout/item_new_arrival" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

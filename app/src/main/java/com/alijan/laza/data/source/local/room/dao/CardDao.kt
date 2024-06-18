@@ -12,5 +12,5 @@ interface CardDao {
     suspend fun getCardByLocal(): List<CardLocalDTO>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun updateCardToLocal(item: CardLocalDTO)
+    suspend fun updateCardToLocal(item: CardLocalDTO)
 }

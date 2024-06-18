@@ -12,5 +12,5 @@ interface AddressDao {
     suspend fun getAddressByLocal(): List<AddressLocalDTO>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun updateAddressToLocal(item: AddressLocalDTO)
+    suspend fun updateAddressToLocal(item: AddressLocalDTO)
 }

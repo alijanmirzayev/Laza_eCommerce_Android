@@ -6,6 +6,7 @@ import com.alijan.laza.data.dto.ProductDTO
 import com.alijan.laza.data.dto.local.AddressLocalDTO
 import com.alijan.laza.data.dto.local.BasketLocalDTO
 import com.alijan.laza.data.dto.local.CardLocalDTO
+import com.alijan.laza.data.dto.local.WishlistLocalDTO
 
 interface ProductRepository {
 
@@ -20,5 +21,9 @@ interface ProductRepository {
     suspend fun getAddressInformationToLocal(): NetworkResponse<List<AddressLocalDTO>>
     suspend fun updateCardInformationToLocal(item: CardLocalDTO): NetworkResponse<Unit>
     suspend fun getCardInformationToLocal(): NetworkResponse<List<CardLocalDTO>>
+    suspend fun getAllWishlistByLocal(): NetworkResponse<List<WishlistLocalDTO>>
+    suspend fun getItemWishlistByLocal(item: WishlistLocalDTO): NetworkResponse<WishlistLocalDTO?>
+    suspend fun addItemWishlistToLocal(item: WishlistLocalDTO): NetworkResponse<Unit>
+    suspend fun deleteItemWishlistToLocal(item: WishlistLocalDTO): NetworkResponse<Unit>
 
 }

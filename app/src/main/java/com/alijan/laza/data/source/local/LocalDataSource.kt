@@ -3,6 +3,7 @@ package com.alijan.laza.data.source.local
 import com.alijan.laza.data.dto.local.AddressLocalDTO
 import com.alijan.laza.data.dto.local.BasketLocalDTO
 import com.alijan.laza.data.dto.local.CardLocalDTO
+import com.alijan.laza.data.dto.local.WishlistLocalDTO
 
 interface LocalDataSource {
     suspend fun saveIsRegister(value: Boolean)
@@ -15,5 +16,9 @@ interface LocalDataSource {
     suspend fun getAddressInformationToLocal(): List<AddressLocalDTO>
     suspend fun updateCardInformationToLocal(item: CardLocalDTO)
     suspend fun getCardInformationToLocal(): List<CardLocalDTO>
+    suspend fun getAllWishlistByLocal(): List<WishlistLocalDTO>
+    suspend fun getItemWishlistByLocal(item: WishlistLocalDTO): WishlistLocalDTO?
+    suspend fun addItemWishlistToLocal(item: WishlistLocalDTO)
+    suspend fun deleteItemWishlistToLocal(item: WishlistLocalDTO)
 
 }
