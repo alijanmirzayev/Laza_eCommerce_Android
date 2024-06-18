@@ -15,6 +15,7 @@ interface ProductRepository {
     suspend fun getAllBasketByLocal(): NetworkResponse<List<BasketLocalDTO>>
     suspend fun addBasketToLocal(item: BasketLocalDTO): NetworkResponse<Unit>
     suspend fun deleteBasketToLocal(item: BasketLocalDTO): NetworkResponse<Unit>
+    suspend fun deleteAllBasketToLocal(): NetworkResponse<Unit>
     suspend fun updateAddressInformationToLocal(item: AddressLocalDTO): NetworkResponse<Unit>
     suspend fun getAddressInformationToLocal(): NetworkResponse<List<AddressLocalDTO>>
     suspend fun updateCardInformationToLocal(item: CardLocalDTO): NetworkResponse<Unit>

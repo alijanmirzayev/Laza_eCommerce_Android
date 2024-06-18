@@ -13,6 +13,9 @@ interface BasketDao {
     @Query("SELECT * FROM baskets")
     suspend fun getAllBasketByLocal(): List<BasketLocalDTO>
 
+    @Query("DELETE FROM baskets")
+    suspend fun deleteAllBasketByLocal()
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addBasketToLocal(item: BasketLocalDTO)
 

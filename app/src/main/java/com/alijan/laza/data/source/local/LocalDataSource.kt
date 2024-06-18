@@ -10,6 +10,7 @@ interface LocalDataSource {
     suspend fun getAllBasketByLocal(): List<BasketLocalDTO>
     suspend fun addBasketToLocal(favoritesLocalDTO: BasketLocalDTO)
     suspend fun deleteBasketToLocal(favoritesLocalDTO: BasketLocalDTO)
+    suspend fun deleteAllBasketToLocal()
     suspend fun updateAddressInformationToLocal(item: AddressLocalDTO)
     suspend fun getAddressInformationToLocal(): List<AddressLocalDTO>
     suspend fun updateCardInformationToLocal(item: CardLocalDTO)

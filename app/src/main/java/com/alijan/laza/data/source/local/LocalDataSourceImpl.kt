@@ -42,6 +42,10 @@ class LocalDataSourceImpl @Inject constructor(
         roomDatabase.basketDao().deleteBasketToLocal(item)
     }
 
+    override suspend fun deleteAllBasketToLocal() {
+        roomDatabase.basketDao().deleteAllBasketByLocal()
+    }
+
     override suspend fun updateAddressInformationToLocal(item: AddressLocalDTO) {
         roomDatabase.addressDao().updateAddressToLocal(item)
     }

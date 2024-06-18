@@ -69,6 +69,12 @@ class ProductRepositoryImpl @Inject constructor(
             return@withContext NetworkResponse.Success(response)
         }
 
+    override suspend fun deleteAllBasketToLocal(): NetworkResponse<Unit> =
+        withContext(Dispatchers.IO) {
+            val response = localDataSource.deleteAllBasketToLocal()
+            return@withContext NetworkResponse.Success(response)
+        }
+
     override suspend fun updateAddressInformationToLocal(item: AddressLocalDTO): NetworkResponse<Unit> =
         withContext(Dispatchers.IO) {
             val response = localDataSource.updateAddressInformationToLocal(item)
