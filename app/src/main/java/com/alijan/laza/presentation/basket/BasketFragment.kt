@@ -150,4 +150,10 @@ class BasketFragment : BaseFragment<FragmentBasketBinding>() {
         )
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.getCardInformation()
+        viewModel.getAddressByLocal()
+    }
+
 }

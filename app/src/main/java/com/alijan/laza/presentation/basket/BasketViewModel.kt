@@ -61,7 +61,7 @@ class BasketViewModel @Inject constructor(
         }
     }
 
-    private fun getCardInformation() {
+    fun getCardInformation() {
         viewModelScope.launch {
             _card.value = PaymentUiState.Loading
             try {
@@ -78,7 +78,7 @@ class BasketViewModel @Inject constructor(
         }
     }
 
-    private fun getAddressByLocal() {
+    fun getAddressByLocal() {
         viewModelScope.launch {
             _address.value = AddressUiState.Loading
             try {
